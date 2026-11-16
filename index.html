@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PresenterSync — OBS, Conferencing &amp; Smart Board Presenter Suite</title>
+  <meta name="description" content="Download PresenterSync for Windows and Android Smart Boards &amp; Phones. Synchronize OBS Studio, Zoom/Teams/Meet, PowerPoint, Wireless Director Deck, Presenter Countdown Timer, and Floating Mic HUDs." />
+  <style>
+    :root {
+      --bg: #0b1120;
+      --surface: #111827;
+      --card: #182235;
+      --border: #293548;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --primary: #10b981;
+      --accent: #0ea5e9;
+      --warn: #f59e0b;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --surface: #ffffff;
+        --card: #ffffff;
+        --border: #e2e8f0;
+        --text: #0f172a;
+        --muted: #475569;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 64px; }
+    .hero {
+      background: linear-gradient(135deg, rgba(16,185,129,0.14), rgba(14,165,233,0.14));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 36px 28px;
+      margin-bottom: 28px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: rgba(16,185,129,0.16);
+      color: var(--primary);
+      border: 1px solid rgba(16,185,129,0.4);
+      margin-bottom: 12px;
+    }
+    h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.2; margin-bottom: 12px; }
+    .lead { font-size: 1.08rem; color: var(--muted); max-width: 780px; margin-bottom: 22px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      transition: transform 0.12s ease, border-color 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: var(--accent); text-decoration: none; }
+    .btn-primary { background: var(--primary); color: #ffffff; border-color: var(--primary); }
+    .btn-accent { background: var(--accent); color: #ffffff; border-color: var(--accent); }
+    h2 { font-size: 1.45rem; margin: 30px 0 14px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .card h3 { font-size: 1.08rem; }
+    .card p { color: var(--muted); font-size: 0.94rem; }
+    .meta { font-size: 0.82rem; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <span class="badge" id="releaseBadge">Latest GitHub Release</span>
+      <h1>PresenterSync Suite</h1>
+      <p class="lead">
+        Zero-focus-loss live mic indicator, 4-tier OBS &amp; Conferencing HUD, Wireless Director Deck,
+        Synchronized Presenter Countdown Timer, Session Chapter Exporter, and Multi-Remote Companions
+        for Windows, Android Smart Boards, and Android Phones.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" id="heroApkBtn" href="https://github.com/SaabithJiffry/PresenterSync/releases/latest">Download Android APK</a>
+        <a class="btn btn-accent" id="heroHostBtn" href="https://github.com/SaabithJiffry/PresenterSync/releases/latest">Download Windows Host EXE</a>
+        <a class="btn" id="heroRemoteBtn" href="https://github.com/SaabithJiffry/PresenterSync/releases/latest">Download Windows Remote EXE</a>
+        <a class="btn" href="https://github.com/SaabithJiffry/PresenterSync">View Source on GitHub</a>
+      </div>
+    </section>
+
+    <h2>Direct Portable Downloads</h2>
+    <div class="grid">
+      <article class="card">
+        <div>
+          <h3>PresenterSync.exe</h3>
+          <p>Windows x64 Primary Host — OBS WebSocket v5, Zoom/Teams/Meet UIA, PowerPoint COM bridge, Host Bridge server (:4456), Session Timeline, &amp; Secondary Independent Mic Pill.</p>
+        </div>
+        <div>
+          <div class="meta" id="metaHost">x64 Portable Binary</div>
+          <div style="margin-top: 10px;"><a class="btn btn-accent" id="dlHost" href="https://github.com/SaabithJiffry/PresenterSync/releases/latest">Download Host</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <h3>PresenterSync_Remote.exe</h3>
+          <p>Windows OPS / Secondary Laptop Companion — streamlined 1-tier mic HUD, classroom UDP auto-discovery, WAN Relay, and clicker mute control.</p>
+        </div>
+        <div>
+          <div class="meta" id="metaRemote">x64 Portable Binary</div>
+          <div style="margin-top: 10px;"><a class="btn" id="dlRemote" href="https://github.com/SaabithJiffry/PresenterSync/releases/latest">Download Remote</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <h3>PresenterSync_Remote.apk</h3>
+          <p>Android 8–15+ Signed APK — responsive for Phones &amp; 65&quot;+ Smart Boards with floating mic pill, Push-to-Talk, Director Deck, Countdown Timer, &amp; 1-tap self-updater.</p>
+        </div>
+        <div>
+          <div class="meta" id="metaApk">Signed Android APK</div>
+          <div style="margin-top: 10px;"><a class="btn btn-primary" id="dlApk" href="https://github.com/SaabithJiffry/PresenterSync/releases/latest">Download APK</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <h3>SHA256SUMS.txt</h3>
+          <p>Cryptographic SHA-256 digests generated by CI for every release binary and verified automatically by both Windows and Android in-app updaters.</p>
+        </div>
+        <div>
+          <div class="meta" id="metaSums">CI Integrity Manifest</div>
+          <div style="margin-top: 10px;"><a class="btn" id="dlSums" href="https://github.com/SaabithJiffry/PresenterSync/releases/latest">View Checksums</a></div>
+        </div>
+      </article>
+    </div>
+
+    <h2>Key Capabilities</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Adaptive 4-Tier HUD + Secondary Mic Pill</h3>
+        <p>Track Mic state (w/ CoreAudio voice activity bar &amp; muted-voice warnings), Recording timer, Chat unread count, OBS Studio/Scene, and Live Stream/VCam health. Toggle an extra independent Primary Mic Pill anywhere on screen.</p>
+      </div>
+      <div class="card">
+        <h3>Director Deck, Timer &amp; Stage Nudge</h3>
+        <p>Switch OBS scenes, Pause/Split recordings, toggle Standby BRB curtains, run synchronized presenter countdowns, and push floating stage nudges across Host, Remotes, and Phones.</p>
+      </div>
+      <div class="card">
+        <h3>Session Timeline &amp; Chapter Exports</h3>
+        <p>Bounded 2,000-entry timeline logs every mic, scene, slide, and recording marker and exports directly to Video Editor CSV markers, Markdown tables, or YouTube chapters.</p>
+      </div>
+      <div class="card">
+        <h3>Classroom Discovery &amp; Failover</h3>
+        <p>Guided setup wizards, 1-tap Classroom LAN UDP discovery (:4457), QR pairing, DHCP IP-shift auto-follow, and seamless LAN &harr; WAN Relay failover.</p>
+      </div>
+    </div>
+
+    <footer>
+      <span>Maintained by <a href="https://github.com/SaabithJiffry">Saabith Jiffry</a> &middot; MIT License</span>
+      <span><a href="https://github.com/SaabithJiffry/PresenterSync/blob/main/README.md">Documentation</a> &middot; <a href="https://github.com/SaabithJiffry/PresenterSync/releases">All Releases</a></span>
+    </footer>
+  </div>
+
+  <script>
+    (async function hydrateLatestRelease() {
+      try {
+        const resp = await fetch("https://api.github.com/repos/SaabithJiffry/PresenterSync/releases/latest", { headers: { "Accept": "application/vnd.github+json" } });
+        if (!resp.ok) return;
+        const data = await resp.json();
+        if (data.tag_name) {
+          document.getElementById("releaseBadge").textContent = "Latest Release: " + data.tag_name;
+        }
+        const byName = new Map((data.assets || []).map(a => [a.name, a]));
+        const wire = (btnIds, metaId, name) => {
+          const asset = byName.get(name);
+          if (!asset) return;
+          btnIds.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.href = asset.browser_download_url;
+          });
+          const metaEl = document.getElementById(metaId);
+          if (metaEl && asset.size) {
+            const mb = (asset.size / (1024 * 1024)).toFixed(2);
+            metaEl.textContent = name + " • " + mb + " MB";
+          }
+        };
+        wire(["dlHost", "heroHostBtn"], "metaHost", "PresenterSync.exe");
+        wire(["dlRemote", "heroRemoteBtn"], "metaRemote", "PresenterSync_Remote.exe");
+        wire(["dlApk", "heroApkBtn"], "metaApk", "PresenterSync_Remote.apk");
+        wire(["dlSums"], "metaSums", "SHA256SUMS.txt");
+      } catch (_) {}
+    })();
+  </script>
+</body>
+</html>
