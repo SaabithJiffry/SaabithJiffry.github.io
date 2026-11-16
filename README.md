@@ -1,2 +1,3 @@
 # SaabithJiffry.github.io
-Official portal &amp; release downloads for PresenterSync — cross-platform OBS, Conferencing &amp; Smart Board presenter suite.
+
+Official web portal and release download page for **[PresenterSync](https://github.com/SaabithJiffry/PresenterSync)** — published at **[saabithjiffry.github.io](https://saabithjiffry.github.io)**.
